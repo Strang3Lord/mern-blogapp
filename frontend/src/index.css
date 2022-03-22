@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700");
 
+img {
+  width: 100%;
+}
+
 :root {
   --color: #cc2f2a;
   --transition-time: 0.7s;

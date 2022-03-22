@@ -20,6 +20,12 @@ const blogSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    b2: {
+      type: String,
+    },
+    b3: {
+      type: String,
+    },
   },
   {
     timestamps: true,

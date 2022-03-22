@@ -5,6 +5,9 @@ import { Form, Button } from "react-bootstrap"
 const Homepage = () => {
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
+  const [body2, setBody2] = useState("")
+  const [body3, setBody3] = useState("")
+  const [cat, setCat] = useState("")
   const [i1, setI1] = useState("")
   const [i2, setI2] = useState("")
   const [i3, setI3] = useState("")
@@ -29,7 +32,6 @@ const Homepage = () => {
         formData,
         config
       )
-      alert("hey")
 
       setLol(data)
     } catch (error) {
@@ -47,7 +49,16 @@ const Homepage = () => {
     }
     const { data } = await axios.post(
       `http://localhost:4000/blog`,
-      { title: title, body: body, category: "Tech", i1: i1, i2: i2, i3: i3 },
+      {
+        title: title,
+        body: body,
+        b2: body2,
+        b3: body3,
+        category: "Tech",
+        i1: i1,
+        i2: i2,
+        i3: i3,
+      },
       config
     )
 
@@ -91,11 +102,22 @@ const Homepage = () => {
             value={i1}
           ></Form.Control>
         </div>
+
+        <Form.Group controlId='body'>
+          <Form.Label>Body2</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter body'
+            value={body2}
+            onChange={(e) => setBody2(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+
         <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr" }}>
           <input
             type='file'
             id='myfile'
-            name='myfile'
+            name={i2}
             onChange={(e) => uploadFileHandler(e, setI2)}
           />
           <Form.Control
@@ -104,11 +126,22 @@ const Homepage = () => {
             value={i2}
           ></Form.Control>
         </div>
+
+        <Form.Group controlId='body'>
+          <Form.Label>Body3</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter body'
+            value={body3}
+            onChange={(e) => setBody3(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+
         <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr" }}>
           <input
             type='file'
             id='myfile'
-            name='myfile'
+            name={i3}
             onChange={(e) => uploadFileHandler(e, setI3)}
           />
           <Form.Control
